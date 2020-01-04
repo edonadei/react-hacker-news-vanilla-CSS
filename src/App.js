@@ -1,23 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./App.css";
-import { getStoryIds } from "./services/hnAPI";
-
+import { StoriesContainer } from "./containers/StoriesContainer";
 function App() {
-  const [storyIds, setStoryIds] = useState([]);
-
-  useEffect(() => {
-    getStoryIds().then(data => {
-      setStoryIds(data);
-    });
-  }, []);
-
-  return (
-    <React.Fragment>
-      {storyIds.map((item) => {
-        return item + " "
-      })}
-    </React.Fragment>
-  );
+  return <StoriesContainer />;
 }
 
 export default App;
