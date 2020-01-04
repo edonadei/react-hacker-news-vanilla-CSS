@@ -1,11 +1,21 @@
-import React from 'react';
-import './App.css';
-import { Typography } from '@material-ui/core';
+import React, { useEffect, useState } from "react";
+import "./App.css";
+import { getStoryIds } from "./services/hnAPI";
 
 function App() {
+  const [storyIds, setStoryIds] = useState([]);
+
+  useEffect(() => {
+    getStoryIds().then(data => {
+      setStoryIds(data);
+    });
+  }, []);
+
   return (
     <React.Fragment>
-      <Typography>Hello world</Typography>
+      {storyIds.map((item) => {
+        return item + " "
+      })}
     </React.Fragment>
   );
 }
