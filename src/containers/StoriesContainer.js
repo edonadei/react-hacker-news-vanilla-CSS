@@ -13,6 +13,7 @@ export const StoriesContainer = () => {
 
   return (
     <React.Fragment>
+      <h1>Hacker News Digest</h1>
       {storyIds.map(item => {
         return <Story key={item} storyID={item} />;
       })}
