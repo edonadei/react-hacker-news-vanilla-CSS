@@ -14,7 +14,7 @@ export const Story = ({ storyID }) => {
     getStory(storyID).then(data => data && data.url && setStory(data));
   }, []);
 
-  return (
+  return story && story.url ? (
     <StoryWrapper>
       <StoryTitle>
         <a href={story.url}>{story.title}</a>
@@ -31,5 +31,5 @@ export const Story = ({ storyID }) => {
         </span>
       </StoryMeta>
     </StoryWrapper>
-  );
+  ) : null ;
 };

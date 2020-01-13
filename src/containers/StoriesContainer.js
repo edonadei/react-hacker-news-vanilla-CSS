@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { getStoryIds } from "../services/hnAPI";
 import { Story } from "../components/Story";
+import {
+  GlobalStyle,
+  StoryContainerWrapper,
+  StoriesContainerWrapper
+} from "../styles/StoryContainerStyles";
 
 export const StoriesContainer = () => {
   const [storyIds, setStoryIds] = useState([]);
@@ -13,10 +18,13 @@ export const StoriesContainer = () => {
 
   return (
     <React.Fragment>
-      <h1>Hacker News Digest</h1>
-      {storyIds.map(item => {
-        return <Story key={item} storyID={item} />;
-      })}
+      <GlobalStyle />
+      <StoriesContainerWrapper data-test-id="stories-container">
+        <h1>Hacker News Digest</h1>
+        {storyIds.map(item => {
+          return <Story key={item} storyID={item} />;
+        })}
+      </StoriesContainerWrapper>
     </React.Fragment>
   );
 };
